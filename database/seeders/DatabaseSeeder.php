@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Position;
+use App\Models\User;
+use DB;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,6 +15,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $positions = Position::factory(5)->create();
+
+
+        $userCount = 50;
+        $userData = [];
+        for ($i = 0; $i < $userCount; $i++) {
+            $userData[] = User::factory()
+                ->makeOne([
+                    'position_id' => $positions->random()->id
+                ])
+                ->toArray();
+        }
+
+
+        DB::table('users')->insert($userData);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
