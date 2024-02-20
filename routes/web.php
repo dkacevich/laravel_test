@@ -15,11 +15,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'app');
 
-Route::get('/users', function () {
-    return view('users');
-});
-
-
-Route::get('/form', function () {
-    return view('form');
-});
