@@ -16,12 +16,12 @@
 <body class="antialiased">
 
 
-<div x-data="loadMoreData()" x-init="loadMore()" class="space-y-4 flex flex-col items-center">
-
+<div x-data="loadMoreData()"
+     x-init="init()"
+>
     <h1 class="text-3xl font-bold text-blue-400">
         Users
     </h1>
-
     <template x-for="user in users" :key="user.id">
         <div class="flex items-center space-x-4">
             <img :src="user.photo" alt="" class="w-12 h-12 rounded-full">
@@ -31,7 +31,6 @@
             </div>
         </div>
     </template>
-
     <button x-show="nextUrl" x-on:click="loadMore()" class="px-4 py-2 bg-blue-500 text-white rounded">Load More
     </button>
 </div>
@@ -41,6 +40,8 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
 
 <script>
+
+
     function loadMoreData() {
 
         return {
@@ -61,7 +62,6 @@
             }
         };
     }
-
 
 </script>
 
